@@ -1,0 +1,58 @@
+JSON for save the configuration for images and so on
+	*	JSON.parse()
+		-	JSON.parse(String)
+	*	JSON.stringify()
+		-	JSON.stringify(Object)
+
+XMLHTTPRequest
+	*	new XMLHTTPRequest()
+	*	.open()
+		-	.open(method, url, boolean);
+		-	.open("GET", "URL", true);
+	*	.onload = function(){}
+		-	callback
+		-	this.responseText
+	*	.send()
+	*	.responseType
+		-	arraybuffer
+Function
+	*	.caller
+		-	who call the function
+Try/Catch
+	*	try { ... } catch(e) { trow new Error(e); } finally { ... }
+	*	try { ... } catch(e if e instaceof TypeErroe) { ... } catch(e if instanceof RangeError) { ... } catch(e) { ... }
+
+
+dependency injections
+
+DOM manipulation
+	*	document.getElementById('ID')
+	*	document.createElement("tag")
+	*	.id
+		-	id of element
+		.appendChild(Element)
+		.innerHTML
+		.className
+Canvas
+	*	.width
+	*	.height
+		-	window.innerWidth
+		-	window.innerHeight
+	*	.getContext("2d");
+		-	where all drawing methods are defined
+		-	handle drawing API
+	*	ctx.fillRest(x, y, width, height)
+	*	ctx.fillStyle()
+
+Image
+	*	new Image()
+	*	.onload = function() { ... }; // callback
+	*	.src = "uri";
+	*	ctx.drawImage
+		-	drawImage(img, x, y);
+
+
+
+
+##Links
+	*	webplatform.org

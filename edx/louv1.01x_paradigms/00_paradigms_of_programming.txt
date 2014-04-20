@@ -1,0 +1,15 @@
+kernel language
+Functional programming
+declarative programming
+
+Declarative programming
+    *   vision of CS
+    *   what is result and computer figure out how to get there
+    *   Declarative vs imperative
+        -   properties vs commands
+    how declarative programming is work:
+        ~   functions
+        ~   relations
+    without state:
+        ~   stateless vs stateful
+    

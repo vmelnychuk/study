@@ -1,0 +1,46 @@
+Exit Emacs:
+    C-x C-c
+
+Help:
+    C-h 
+    C-h i   # go to info directory
+    -   in info mode:
+            u   # go up in manual (like a backspace in browser)
+            l   # go to last visited page
+    C-h m    # get help for mode
+    C-h t
+Run commands:
+    M-x 
+Quit (Stop command):
+    C-g    # quit from command
+Search:
+    C-s
+Movement:
+    C-v / M-v   # go one screen forward/backward
+    C-l    # put center scren to cursor
+    C-a    # go to begining of line
+    C-p/C-n    # prev/next line
+    C-b/C-f    # back/forward char
+    
+
+Modes in buffer:
+    *   Fundamental
+        -   for normal text editing
+        *Name* <- buffer not tie to file on disk / in memory buffer
+        
+Kill Buffer:
+    C-x k
+Switch to other window:
+    C-x o
+    C-x b
+Single window
+    C-x 1
+Setings
+    M-x customize
+    
+Find file
+    C-x C-f
+Packages
+    M-x list-packages
+Save
+    C-x C-s
