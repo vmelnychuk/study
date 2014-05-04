@@ -101,9 +101,52 @@ verbose=vvvvv
 *	Saving Data
 	_id:
 		_id type can be Number, String, ISODate(), Object()
+		_id can't Array()
+		_id by default ObjectId()
+			ObjectId().getTimestamp()
 	> show collections
 	> // save record
 	> db.foo.save({_id: 1, x: 10})
 	> // db.<nameOfCollection>.command()
 	> db.system.indexes // for indexes for faster access to data
-	
+	-	Commands
+		~	save
+		~	insert
+		~	find
+		~	findOne
+		~	find().pretty()
+		~	update
+			db.foo.update(query,update,options);
+			foo - collection
+			query - document
+			update - changes
+			options - one/many/upsert
+			---	atomic
+			`	{$inc:{x:1}} // increment fielt by value
+					db.a.update({_id:1}, {$inc:{x:1}})
+			`	{$set:{y:3}} // add new field
+			`	{$unset:{y: ''}} // remove field
+			`	{$rename:{'oldName': 'newName'}} // rename field
+			--- array ops
+			`	{$push: {things: 'one'}} // create/add element to Array
+			`	{$addToSet:{things: 'four'}} // add if not exists
+			`	{$pull:{things: 'two'}} // remove all instances from array
+			`	{$pop: {things: 1}} // remove last el in array
+				{$pop: {things: -1}} // remode first el in array
+			--- query
+			`	{} // all matches
+			--- options
+			`	{multi:true} // multiple update
+		~	findAndModify( {
+			query: document,
+			update: document,
+			upset: boolean,
+			remove: boolean,
+			new: boolean,
+			sort: document,
+			fields: document});
+			-	return old(default) or new(new: true) version of doc
+
+
+
+
