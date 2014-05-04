@@ -85,3 +85,25 @@ verbose=vvvvv
 		rs.status()
 
 * Shell
+	> db.save({x:1});
+	> db.find();
+	--	run command in mongo JS shell
+	$ mongo server1/admin --eval "db.reuCommand({logRotate:1})"
+	$ mongo server1 myDayliChores.js
+	$ mongo server1 myDayliChores.js --shell
+	mongo <host>/<db>
+	printjson()
+	-	~/.mongorc.js
+		mongo --norc
+	> db.dropDatabase()
+
+*	BSON
+*	Saving Data
+	_id:
+		_id type can be Number, String, ISODate(), Object()
+	> show collections
+	> // save record
+	> db.foo.save({_id: 1, x: 10})
+	> // db.<nameOfCollection>.command()
+	> db.system.indexes // for indexes for faster access to data
+	
