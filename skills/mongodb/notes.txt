@@ -1,0 +1,87 @@
+*	impedance mismatch
+*	no scheme objects match to db records
+*	object does not spread between tables
+*	scalability issues
+	-	no schema
+	-	single document write scope
+	-	Capped Collection
+		~	fix size
+
+*	Tunable consistency (durability and eventual consistency)
+	--	consistency eventual
+	--	complete consistency
+		~	all changes were done on all servers befor control is returned to
+			application	
+	--	fire and forget
+		~	control returned immediately
+	--	majority
+		~	replicates to same of the servers and returns the control
+	-	durrability is persistent
+	-	consistent and durable
+
+*	no tables
+
+*	Conponents
+	-	mongod
+		~	server
+	-	mongo
+		~	shell
+
+*	Get Started
+	-	create folder for database
+		\data\db (from root, default place)
+	-	run mongo daemon
+		$ mongod
+			or
+		$ mongod --dbpath <your_path> e.g. data\db
+*	More deep start
+	-	create configuration file
+		mongod.conf
+		dbpath=/path/db
+		logpath=/log.log
+		verbose=vvvvv
+```mongod.conf
+dbpath=/Development/work/mongo/data/db
+logpath=/Development/work/mongo/mongo-server.log
+verbose=vvvvv
+```
+	-	run mongo server
+		$ mongod -f mongo.conf
+	-	run shell for default port and localhost
+		$ mongo
+		> exit
+		> show dbs // show all dbs
+		> db // show current db
+		> use foo // switch to other db
+		> help // get help
+
+*	Replica Set
+	-	primary (only writable instance)
+	-	secondary (read only)
+	-	arbiter (gives votes on election of primary)
+	-	odd number is not require of arbiter
+*	Do replica
+	-	start 3 servers
+		$ start "a" mongod --dbpath ./db1 --port 30000 --replSet "demo"
+		$ start "b" mongod --dbpath ./db2 --port 40000 --replSet "demo"
+		$ start "c" mongod --dbpath ./db3 --port 50000 --replSet "demo"
+	-	connect to one
+		$ mongo --port 30000
+		> db.getMongo() // check for instance
+		> //create configuration object
+		> var demoConfig = { _id: "demo", members: [{_id: 0, host: "localhost: 30000", priority: 10}, {_id: 1, host: "localhost: 40000"}, {_id: 2, host: "localhost: 50000", arbiterOnly: true}]};
+		_id: "demo" === --replSet "demo"
+		> // initialize the replication
+		> rs.initiate(demoConfig)
+		> //test
+		> db.foo.save({_id: 1, value: "hello world"})
+		> db.foo.find()
+		$ mongo --port 40000
+		> db.setSlaveOk()
+		> db.foo.find()
+
+		rs.help()
+		rs // repl set
+		rs.status()
+
+* Shell
